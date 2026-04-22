@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Habit tracker — warm minimal design system. Cream + ink + terracotta.
+   All colors HSL. */
+
+@layer base {
+  :root {
+    /* Canvas */
+    --background: 39 38% 96%;          /* warm cream #faf6ee */
+    --foreground: 25 25% 12%;          /* deep ink */
+
+    --card: 39 45% 98%;
+    --card-foreground: 25 25% 12%;
+
+    --popover: 39 45% 98%;
+    --popover-foreground: 25 25% 12%;
+
+    /* Primary = ink */
+    --primary: 25 30% 14%;
+    --primary-foreground: 39 38% 96%;
+
+    --secondary: 35 25% 90%;
+    --secondary-foreground: 25 25% 18%;
+
+    --muted: 35 22% 92%;
+    --muted-foreground: 25 12% 42%;
+
+    /* Accent = terracotta */
+    --accent: 14 55% 55%;
+    --accent-foreground: 39 45% 98%;
+    --accent-soft: 14 60% 92%;
+
+    /* Secondary tints used by habits */
+    --olive: 75 25% 45%;
+    --sand: 35 50% 65%;
+    --clay: 18 45% 50%;
+    --sage: 130 18% 48%;
+    --plum: 340 25% 50%;
+    --indigo: 230 30% 50%;
+
+    --destructive: 0 65% 48%;
+    --destructive-foreground: 39 45% 98%;
+
+    --border: 30 18% 86%;
+    --input: 30 18% 86%;
+    --ring: 14 55% 55%;
+
+    --radius: 0.875rem;
+
+    /* Heatmap intensity (terracotta scale) */
+    --heat-0: 35 22% 92%;
+    --heat-1: 14 55% 88%;
+    --heat-2: 14 55% 75%;
+    --heat-3: 14 55% 62%;
+    --heat-4: 14 60% 48%;
+
+    --shadow-soft: 0 1px 2px hsl(25 25% 12% / 0.04), 0 8px 24px -12px hsl(25 25% 12% / 0.08);
+    --shadow-lift: 0 2px 4px hsl(25 25% 12% / 0.06), 0 16px 40px -16px hsl(25 25% 12% / 0.14);
+
+    --gradient-warm: linear-gradient(135deg, hsl(14 60% 60%), hsl(28 65% 62%));
+
+    --sidebar-background: 39 38% 96%;
+    --sidebar-foreground: 25 25% 18%;
+    --sidebar-primary: 25 30% 14%;
+    --sidebar-primary-foreground: 39 38% 96%;
+    --sidebar-accent: 35 25% 90%;
+    --sidebar-accent-foreground: 25 25% 14%;
+    --sidebar-border: 30 18% 86%;
+    --sidebar-ring: 14 55% 55%;
+  }
+
+  .dark {
+    --background: 25 18% 8%;
+    --foreground: 39 30% 92%;
+
+    --card: 25 18% 11%;
+    --card-foreground: 39 30% 92%;
+
+    --popover: 25 18% 11%;
+    --popover-foreground: 39 30% 92%;
+
+    --primary: 39 30% 92%;
+    --primary-foreground: 25 25% 12%;
+
+    --secondary: 25 12% 16%;
+    --secondary-foreground: 39 30% 92%;
+
+    --muted: 25 12% 14%;
+    --muted-foreground: 35 12% 62%;
+
+    --accent: 14 60% 58%;
+    --accent-foreground: 25 25% 10%;
+    --accent-soft: 14 35% 22%;
+
+    --olive: 75 25% 55%;
+    --sand: 35 50% 70%;
+    --clay: 18 50% 58%;
+    --sage: 130 18% 55%;
+    --plum: 340 30% 60%;
+    --indigo: 230 35% 62%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 39 30% 92%;
+
+    --border: 25 12% 18%;
+    --input: 25 12% 18%;
+    --ring: 14 60% 58%;
+
+    --heat-0: 25 12% 14%;
+    --heat-1: 14 40% 22%;
+    --heat-2: 14 50% 32%;
+    --heat-3: 14 55% 45%;
+    --heat-4: 14 65% 58%;
+
+    --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.3), 0 8px 24px -12px hsl(0 0% 0% / 0.5);
+    --shadow-lift: 0 2px 4px hsl(0 0% 0% / 0.4), 0 16px 40px -16px hsl(0 0% 0% / 0.6);
+
+    --sidebar-background: 25 18% 8%;
+    --sidebar-foreground: 39 30% 90%;
+    --sidebar-primary: 14 60% 58%;
+    --sidebar-primary-foreground: 25 25% 10%;
+    --sidebar-accent: 25 12% 14%;
+    --sidebar-accent-foreground: 39 30% 92%;
+    --sidebar-border: 25 12% 18%;
+    --sidebar-ring: 14 60% 58%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { font-feature-settings: "ss01", "cv11"; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Fraunces', 'Georgia', serif;
+    font-feature-settings: "ss01";
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .surface {
+    @apply bg-card border border-border rounded-2xl;
+    box-shadow: var(--shadow-soft);
+  }
+  .heat-0 { background-color: hsl(var(--heat-0)); }
+  .heat-1 { background-color: hsl(var(--heat-1)); }
+  .heat-2 { background-color: hsl(var(--heat-2)); }
+  .heat-3 { background-color: hsl(var(--heat-3)); }
+  .heat-4 { background-color: hsl(var(--heat-4)); }
+
+  /* Rich text editor */
+  .rich-editor:empty::before {
+    content: attr(data-placeholder);
+    color: hsl(var(--muted-foreground));
+    pointer-events: none;
+  }
+  .rich-editor h1 { @apply font-display text-3xl mt-4 mb-2 tracking-tight; }
+  .rich-editor h2 { @apply font-display text-2xl mt-3 mb-1.5 tracking-tight; }
+  .rich-editor p { @apply my-1.5; }
+  .rich-editor ul { @apply list-disc pl-6 my-2 space-y-1; }
+  .rich-editor ul[data-checklist="true"] { @apply list-none pl-0; }
+  .rich-editor ul[data-checklist="true"] li { @apply pl-7 relative cursor-pointer; }
+  .rich-editor ul[data-checklist="true"] li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.4em;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid hsl(var(--border));
+    border-radius: 4px;
+    background: hsl(var(--background));
+    transition: all 0.15s;
+  }
+  .rich-editor ul[data-checklist="true"] li[data-check="true"]::before {
+    background: hsl(var(--foreground));
+    border-color: hsl(var(--foreground));
+  }
+  .rich-editor ul[data-checklist="true"] li[data-check="true"]::after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: calc(0.4em + 3px);
+    width: 8px;
+    height: 5px;
+    border-left: 2px solid hsl(var(--background));
+    border-bottom: 2px solid hsl(var(--background));
+    transform: rotate(-45deg);
+  }
+  .rich-editor ul[data-checklist="true"] li[data-check="true"] {
+    @apply text-muted-foreground line-through;
+  }
+  .rich-editor strong { @apply font-semibold; }
+  .rich-editor em { @apply italic; }
+}
+
+@layer utilities {
+  .animate-in-up {
+    animation: in-up 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  @keyframes in-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .check-pop { animation: pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+  @keyframes pop {
+    0% { transform: scale(0.8); }
+    60% { transform: scale(1.12); }
+    100% { transform: scale(1); }
+  }
+}
